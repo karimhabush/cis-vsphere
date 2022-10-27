@@ -1,0 +1,319 @@
+[
+    {
+        "Name": "atlantic",
+        "Version": "1.0.3.0-8vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "bnxtnet",
+        "Version": "216.0.50.0-44vmw.703.0.50.20036589"
+    },
+    {
+        "Name": "bnxtroce",
+        "Version": "216.0.58.0-23vmw.703.0.50.20036589"
+    },
+    {
+        "Name": "brcmfcoe",
+        "Version": "12.0.1500.2-3vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "elxiscsi",
+        "Version": "12.0.1200.0-9vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "elxnet",
+        "Version": "12.0.1250.0-5vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "i40en",
+        "Version": "1.11.1.31-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "iavmd",
+        "Version": "2.7.0.1157-2vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "icen",
+        "Version": "1.4.1.20-1vmw.703.0.50.20036589"
+    },
+    {
+        "Name": "igbn",
+        "Version": "1.4.11.2-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "ionic-en",
+        "Version": "16.0.0-16vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "irdman",
+        "Version": "1.3.1.22-1vmw.703.0.50.20036589"
+    },
+    {
+        "Name": "iser",
+        "Version": "1.1.0.1-1vmw.703.0.50.20036589"
+    },
+    {
+        "Name": "ixgben",
+        "Version": "1.7.1.35-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lpfc",
+        "Version": "14.0.169.26-5vmw.703.0.50.20036589"
+    },
+    {
+        "Name": "lpnic",
+        "Version": "11.4.62.0-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsi-mr3",
+        "Version": "7.718.02.00-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsi-msgpt2",
+        "Version": "20.00.06.00-4vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsi-msgpt35",
+        "Version": "19.00.02.00-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsi-msgpt3",
+        "Version": "17.00.12.00-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "mtip32xx-native",
+        "Version": "3.9.8-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "ne1000",
+        "Version": "0.8.4-11vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nenic",
+        "Version": "1.0.33.0-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nfnic",
+        "Version": "4.0.0.70-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nhpsa",
+        "Version": "70.0051.0.100-4vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nmlx4-core",
+        "Version": "3.19.16.8-2vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nmlx4-en",
+        "Version": "3.19.16.8-2vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nmlx4-rdma",
+        "Version": "3.19.16.8-2vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nmlx5-core",
+        "Version": "4.19.16.11-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nmlx5-rdma",
+        "Version": "4.19.16.11-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "ntg3",
+        "Version": "4.1.7.0-0vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nvme-pcie",
+        "Version": "1.2.3.16-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nvmerdma",
+        "Version": "1.0.3.5-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nvmetcp",
+        "Version": "1.0.0.0-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nvmxnet3-ens",
+        "Version": "2.0.0.22-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "nvmxnet3",
+        "Version": "2.0.0.30-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "pvscsi",
+        "Version": "0.1-4vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "qcnic",
+        "Version": "1.0.15.0-14vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "qedentv",
+        "Version": "3.40.5.53-22vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "qedrntv",
+        "Version": "3.40.5.53-18vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "qfle3",
+        "Version": "1.0.67.0-22vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "qfle3f",
+        "Version": "1.0.51.0-22vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "qfle3i",
+        "Version": "1.0.15.0-15vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "qflge",
+        "Version": "1.1.0.11-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "rste",
+        "Version": "2.0.2.0088-7vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "sfvmk",
+        "Version": "2.4.0.2010-6vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "smartpqi",
+        "Version": "70.4149.0.5000-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "vmkata",
+        "Version": "0.1-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "vmkfcoe",
+        "Version": "1.0.0.2-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "vmkusb",
+        "Version": "0.1-6vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "vmw-ahci",
+        "Version": "2.0.11-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "bmcal",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "cpu-microcode",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "crx",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "elx-esx-libelxima.so",
+        "Version": "12.0.1200.0-4vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "esx-base",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "esx-dvfilter-generic-fastpath",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "esx-ui",
+        "Version": "1.43.8-19798623"
+    },
+    {
+        "Name": "esx-update",
+        "Version": "7.0.3-0.50.20036589"
+    },
+    {
+        "Name": "esx-xserver",
+        "Version": "7.0.3-0.50.20036589"
+    },
+    {
+        "Name": "esxio-combiner",
+        "Version": "7.0.3-0.50.20036589"
+    },
+    {
+        "Name": "gc",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "loadesx",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "lsuv2-hpv2-hpsa-plugin",
+        "Version": "1.0.0-3vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsuv2-intelv2-nvme-vmd-plugin",
+        "Version": "2.7.2173-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsuv2-lsiv2-drivers-plugin",
+        "Version": "1.0.0-9vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsuv2-nvme-pcie-plugin",
+        "Version": "1.0.0-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsuv2-oem-dell-plugin",
+        "Version": "1.0.0-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsuv2-oem-hp-plugin",
+        "Version": "1.0.0-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsuv2-oem-lenovo-plugin",
+        "Version": "1.0.0-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "lsuv2-smartpqiv2-plugin",
+        "Version": "1.0.0-8vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "native-misc-drivers",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "qlnativefc",
+        "Version": "4.1.14.0-26vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "trx",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "vdfs",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "vmware-esx-esxcli-nvme-plugin",
+        "Version": "1.2.0.44-1vmw.703.0.20.19193900"
+    },
+    {
+        "Name": "vsan",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "vsanhealth",
+        "Version": "7.0.3-0.55.20328353"
+    },
+    {
+        "Name": "tools-light",
+        "Version": "12.0.0.19345655-20036586"
+    }
+    
+]
