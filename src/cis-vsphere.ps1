@@ -11,10 +11,7 @@ Import-Module -Name $PSScriptRoot\controls\network.ps1 -Force
 # A function to connect to vCenter/ESXi Server using the Connect-VIServer cmdlet and store the connection in a variable
 function Connect-VCServer {
     # Get the connection details from the config file
-    $config = Get-Content -Path $PSScriptRoot\..\config.json | ConvertFrom-Json
-    $server = $config.server
-    $username = $config.username
-    $password = $config.password
+    $server = Read-Host -Prompt 'Please insert the server IP address'
 
     # Set InvalidCertificateAction to warn instead of stop without user interaction
     Write-Host "Setting InvalidCertificateAction to Warn instead of Stop..."
@@ -24,9 +21,8 @@ function Connect-VCServer {
     Write-Host "Connecting to $server" 
 
     # Connect to the vCenter/ESXi Server using https, stop if the connection fails
-    Connect-VIServer -Server $server -User $username -Password $password -Protocol https -ErrorAction Stop
-
-    Write-Host "Successfully connected to $server as $username" -ForegroundColor Green
+    Connect-VIServer -Server $server -Protocol https -ErrorAction Stop
+    Write-Host "Successfully connected to $server" -ForegroundColor Green
 
 }
 
