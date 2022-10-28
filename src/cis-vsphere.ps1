@@ -10,7 +10,7 @@ Import-Module -Name $PSScriptRoot\controls\network.ps1 -Force
 
 # A function to connect to vCenter/ESXi Server using the Connect-VIServer cmdlet and store the connection in a variable
 function Connect-VCServer {
-    # Get the connection details from the config file
+    # Get the IP Address of the server
     $server = Read-Host -Prompt 'Please insert the server IP address'
 
     # Set InvalidCertificateAction to warn instead of stop without user interaction
@@ -96,7 +96,7 @@ Ensure-VirtualDistributedSwitchNetflowTrafficSentToAuthorizedCollector
 Ensure-PortLevelConfigurationOverridesAreDisabled
 
 # 8.Virual Machines
-Write-Host "`n* These controls contain recommendations for settings related to 7.Virtual Machines" -ForegroundColor Blue
+Write-Host "`n* These controls contain recommendations for settings related to 8.Virtual Machines" -ForegroundColor Blue
 Ensure-InformationalMessagesFromVMToVMXLimited
 Ensure-OnlyOneRemoteConnectionIsPermittedToVMAtAnyTime
 Ensure-UnnecessaryFloppyDevicesAreDisconnected
