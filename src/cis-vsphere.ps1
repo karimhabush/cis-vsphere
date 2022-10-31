@@ -144,3 +144,5 @@ Ensure-VirtualDiskWipingIsDisabled
 Ensure-TheNumberOfVMLogFilesIsConfiguredProperly
 Ensure-HostInformationIsNotSentToGuests
 Ensure-VMLogFileSizeIsLimited
+
+Read-Host -Prompt "Press Enter to exit"
