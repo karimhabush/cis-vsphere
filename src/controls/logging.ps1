@@ -4,6 +4,7 @@
 # 3.3 (L1) Ensure remote logging is configured for ESXi hosts
 
 function Ensure-CentralizedESXiHostDumps {
+
     # CIS 3.1 (L1) Ensure a centralized location is configured to collect ESXi host core dumps
     Write-Host "`n* CIS control 3.1 (L1) Ensure a centralized location is configured to collect ESXi host core dumps" -ForegroundColor Blue
     
@@ -14,18 +15,25 @@ function Ensure-CentralizedESXiHostDumps {
     $unknown = 0
 
     # Get the ESXi hosts
-    $CoredumpConf = (Get-ESXCli).system.coredump.network.get()
+    $vmhosts = Get-VMHost
+    foreach ( $vmhost in $vmhosts ) {
+        Write-Host "Check for " $vmhost -ForegroundColor Blue
 
-    if ($CoredumpConf.Enabled -eq $true) {
-        Write-Host "- Check Passed" -ForegroundColor Green
-        Write-Host "  Coredump is enabled" -ForegroundColor Green
-        $passed++
+        $CoredumpConf = (Get-EsxCli -VMHost $vmhost.name).system.coredump.network.get()
+
+        if ($CoredumpConf.Enabled -eq $true) {
+            Write-Host "- Check Passed" -ForegroundColor Green
+            Write-Host "  Coredump is enabled" -ForegroundColor Green
+            $passed++
+        }
+        else {
+            Write-Host "- Check Failed" -ForegroundColor Red
+            Write-Host "  Coredump is disabled" -ForegroundColor Red
+            $failed++
+        }
+
     }
-    else {
-        Write-Host "- Check Failed" -ForegroundColor Red
-        Write-Host "  Coredump is disabled" -ForegroundColor Red
-        $failed++
-    }
+  
 
     # Print the results
     Write-Host "`n-- Summary --"
