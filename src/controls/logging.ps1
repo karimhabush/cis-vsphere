@@ -5,8 +5,6 @@
 
 function Ensure-CentralizedESXiHostDumps {
 
-    Start-Transcript -Path "C:\Users\a.nasser\Documents\Github Repositories\cis-vsphere\src\result.txt"
-
     # CIS 3.1 (L1) Ensure a centralized location is configured to collect ESXi host core dumps
     Write-Host "`n* CIS control 3.1 (L1) Ensure a centralized location is configured to collect ESXi host core dumps" -ForegroundColor Blue
     
@@ -43,10 +41,8 @@ function Ensure-CentralizedESXiHostDumps {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
-    Stop-Transcript
 }
 
-Ensure-CentralizedESXiHostDumps
 function Ensure-PersistentLoggingIsConfigured {
     # CIS 3.2 (L1) Ensure persistent logging is configured for all ESXi hosts
     Write-Host "`n* CIS control 3.2 (L1) Ensure persistent logging is configured for all ESXi hosts" -ForegroundColor Blue
