@@ -76,12 +76,16 @@ function Ensure-InformationalMessagesFromVMToVMXLimited {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -122,12 +126,16 @@ function Ensure-OnlyOneRemoteConnectionIsPermittedToVMAtAnyTime {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 
@@ -164,12 +172,16 @@ function Ensure-UnnecessaryFloppyDevicesAreDisconnected {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -206,12 +218,16 @@ function Ensure-UnnecessaryCdDvdDevicesAreDisconnected {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 function Ensure-UnnecessaryParallelPortsAreDisconnected {
@@ -254,12 +270,16 @@ function Ensure-UnnecessaryParallelPortsAreDisconnected {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 
@@ -303,12 +323,16 @@ function Ensure-UnnecessarySerialPortsAreDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -353,12 +377,16 @@ function Ensure-UnnecessaryUsbDevicesAreDisconnected {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -396,12 +424,16 @@ function Ensure-UnauthorizedModificationOrDisconnectionOfDevicesIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -439,12 +471,16 @@ function Ensure-UnauthorizedConnectionOfDevicesIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -482,12 +518,16 @@ function Ensure-PciPcieDevicePassthroughIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -534,6 +574,18 @@ function Ensure-UseOfTheVMConsoleIsLimited {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
     
 }
 
@@ -557,6 +609,18 @@ function Ensure-SecureProtocolsAreUsedForVirtualSerialPortAccess {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
     
 }
 
@@ -580,6 +644,18 @@ function Ensure-StandardProcessesAreUsedForVMDeployment {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
     
 }
 
@@ -603,6 +679,18 @@ function Ensure-AccessToVMsThroughDvFilterNetworkAPIsIsConfiguredCorrectly {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
     
 }
 
@@ -640,12 +728,16 @@ function Ensure-AutologonIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 function Ensure-BIOSBBSIsDisabled {
@@ -681,12 +773,16 @@ function Ensure-BIOSBBSIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -724,12 +820,16 @@ function Ensure-GuestHostInteractionProtocolIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -767,12 +867,16 @@ function Ensure-UnityTaskBarIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 
 }
@@ -811,11 +915,14 @@ function Ensure-UnityActiveIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
 
 
@@ -855,12 +962,16 @@ function Ensure-UnityWindowContentsIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -898,12 +1009,16 @@ function Ensure-UnityPushUpdateIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -940,12 +1055,16 @@ function Ensure-DragAndDropVersionGetIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 
 }
@@ -983,12 +1102,16 @@ function Ensure-DragAndDropVersionSetIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 function Ensure-ShellActionIsDisabled {
@@ -1024,12 +1147,16 @@ function Ensure-ShellActionIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 function Ensure-DiskRequestTopologyIsDisabled {
@@ -1065,12 +1192,16 @@ function Ensure-DiskRequestTopologyIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 
@@ -1107,12 +1238,16 @@ function Ensure-TrashFolderStateIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -1149,12 +1284,16 @@ function Ensure-GuestHostInterationTrayIconIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 function Ensure-UnityIsDisabled {
@@ -1190,12 +1329,16 @@ function Ensure-UnityIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 
@@ -1232,12 +1375,16 @@ function Ensure-UnityInterlockIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -1275,12 +1422,16 @@ function Ensure-GetCredsIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -1317,12 +1468,16 @@ function Ensure-HostGuestFileSystemServerIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 
@@ -1359,11 +1514,14 @@ function Ensure-GuestHostInteractionLaunchMenuIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
 
 }
@@ -1402,11 +1560,14 @@ function Ensure-memSchedFakeSampleStatsIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
 }
 
@@ -1444,11 +1605,14 @@ function Ensure-VMConsoleCopyOperationsAreDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
 }
 
@@ -1485,11 +1649,14 @@ function Ensure-VMConsoleDragAndDropOprerationsIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
 
 }
@@ -1527,11 +1694,14 @@ function Ensure-VMConsoleGUIOptionsIsDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
 }
 
@@ -1569,11 +1739,14 @@ function Ensure-VMConsolePasteOperationsAreDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
 
 }
@@ -1598,6 +1771,18 @@ function Ensure-VMLimitsAreConfiguredCorrectly {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
     
 }
 
@@ -1632,6 +1817,18 @@ function Ensure-HardwareBased3DAccelerationIsDisabled {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 
 }
 
@@ -1668,12 +1865,16 @@ function Ensure-NonPersistentDisksAreLimited {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 
@@ -1709,12 +1910,16 @@ function Ensure-VirtualDiskShrinkingIsDisabled {
     Write-Host "Failed: $failed" -ForegroundColor Red
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 
 }
@@ -1752,12 +1957,16 @@ function Ensure-VirtualDiskWipingIsDisabled {
     Write-Host "Failed: $failed" -ForegroundColor Red
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 
@@ -1796,12 +2005,16 @@ function Ensure-TheNumberOfVMLogFilesIsConfiguredProperly {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 function Ensure-HostInformationIsNotSentToGuests {
@@ -1837,12 +2050,16 @@ function Ensure-HostInformationIsNotSentToGuests {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 }
 
 
@@ -1881,12 +2098,16 @@ function Ensure-VMLogFileSizeIsLimited {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
     }
     else {
-        return $false
+        return 1
     }
+
 
 }
 

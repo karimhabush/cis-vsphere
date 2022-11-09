@@ -48,6 +48,17 @@ function Ensure-DCUITimeOutIs600 {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-ESXiShellIsDisabled {
@@ -82,6 +93,17 @@ function Ensure-ESXiShellIsDisabled {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -118,6 +140,17 @@ function Ensure-SSHIsDisabled {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-CIMAccessIsLimited {
@@ -141,6 +174,17 @@ function Ensure-CIMAccessIsLimited {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -177,6 +221,17 @@ function Ensure-NormalLockDownIsEnabled {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 }
 
 
@@ -212,6 +267,17 @@ function Ensure-StrickLockdownIsEnabled {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 }
 
 
@@ -235,6 +301,16 @@ function Ensure-SSHAuthorisedKeysFileIsEmpty {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 }
 
 
@@ -271,6 +347,17 @@ function Ensure-IdleESXiShellAndSSHTimeout {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-ShellServicesTimeoutIsProperlyConfigured {
@@ -305,6 +392,17 @@ function Ensure-ShellServicesTimeoutIsProperlyConfigured {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -343,6 +441,17 @@ function Ensure-DCUIHasTrustedUsersForLockDownMode {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 
@@ -366,6 +475,17 @@ function Ensure-ContentsOfExposedConfigurationsNotModified {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 

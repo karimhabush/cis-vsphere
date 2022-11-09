@@ -31,6 +31,17 @@ function Ensure-NonRootExistsForLocalAdmin {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 
@@ -56,6 +67,17 @@ function Ensure-PasswordsAreRequiredToBeComplex {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -91,6 +113,17 @@ function Ensure-LoginAttemptsIsSetTo5 {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -128,6 +161,17 @@ function Ensure-AccountLockoutIsSetTo15Minutes {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 
@@ -161,6 +205,17 @@ function Ensure-Previous5PasswordsAreProhibited {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -196,6 +251,17 @@ function Ensure-ADIsUsedForAuthentication {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-OnlyAuthorizedUsersBelongToEsxAdminsGroup {
@@ -219,6 +285,17 @@ function Ensure-OnlyAuthorizedUsersBelongToEsxAdminsGroup {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-ExceptionUsersIsConfiguredManually {
@@ -241,6 +318,17 @@ function Ensure-ExceptionUsersIsConfiguredManually {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
     
 }
 

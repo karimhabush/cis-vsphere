@@ -13,25 +13,42 @@ function Ensure-CentralizedESXiHostDumps {
     $failed = 0
     $unknown = 0
 
-    # Get the ESXi hosts
-    $CoredumpConf = (Get-ESXCli).system.coredump.network.get()
+    # Get the ESXiCli for each host 
+    $vmhosts = Get-VMHost 
+    # Check for the presence of a centralized location for core dumps
+    Foreach ($vmhost in $vmhosts ){
+        $esxiCli = Get-EsxCli -VMHost $vmhost -V2
+        $ESXiCoreDump = $esxiCli.system.coredump.network.get.Invoke()
+        if ($ESXiCoreDump.Enabled -eq $false) {
+            Write-Host "- Check Failed" -ForegroundColor Red
+            Write-Host "  No centralized location configured for core dumps on $vmhost" -ForegroundColor Red
+            $failed++
+        }
+        else {
+            Write-Host "- Check Passed" -ForegroundColor Green
+            Write-Host "  Centralized location configured for core dumps on $vmhost" -ForegroundColor Green
+            $passed++
+        }
+    }
 
-    if ($CoredumpConf.Enabled -eq $true) {
-        Write-Host "- Check Passed" -ForegroundColor Green
-        Write-Host "  Coredump is enabled" -ForegroundColor Green
-        $passed++
-    }
-    else {
-        Write-Host "- Check Failed" -ForegroundColor Red
-        Write-Host "  Coredump is disabled" -ForegroundColor Red
-        $failed++
-    }
 
     # Print the results
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 
 }
 
@@ -67,6 +84,19 @@ function Ensure-PersistentLoggingIsConfigured {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
+
 }
 
 function Ensure-RemoteLoggingIsConfigured {
@@ -100,6 +130,18 @@ function Ensure-RemoteLoggingIsConfigured {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 
 }
 

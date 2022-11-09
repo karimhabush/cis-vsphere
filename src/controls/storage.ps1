@@ -48,6 +48,18 @@ function Ensure-BidirectionalCHAPAuthIsEnabled {
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
+
 }
 
 
@@ -71,6 +83,18 @@ function Ensure-UniquenessOfCHAPAuthSecretsForiSCSI {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-SANResourcesAreSegregatedProperly {
@@ -93,4 +117,16 @@ function Ensure-SANResourcesAreSegregatedProperly {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }

@@ -41,6 +41,18 @@ function Ensure-vSwitchForgedTransmitsIsReject {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-vSwitchMACAdressChangeIsReject {
@@ -75,6 +87,18 @@ function Ensure-vSwitchMACAdressChangeIsReject {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-vSwitchPromiscuousModeIsReject {
@@ -109,6 +133,18 @@ function Ensure-vSwitchPromiscuousModeIsReject {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 
@@ -150,12 +186,16 @@ function Ensure-PortGroupsNotNativeVLAN {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
     }
-    Else {
-        return $false
+    elseif ($unknown -ne 0) {
+        return 0
     }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-PortGroupsNotUpstreamPhysicalSwitches {
@@ -198,12 +238,16 @@ function Ensure-PortGroupsNotUpstreamPhysicalSwitches {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
     }
-    Else {
-        return $false
+    elseif ($unknown -ne 0) {
+        return 0
     }
+    else {
+        return 1
+    }
+
 
 }
 
@@ -246,12 +290,16 @@ function Ensure-PortGroupsAreNotConfiguredToVLAN0and4095 {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
     }
-    Else {
-        return $false
+    elseif ($unknown -ne 0) {
+        return 0
     }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-VirtualDistributedSwitchNetflowTrafficSentToAuthorizedCollector {
@@ -276,12 +324,16 @@ function Ensure-VirtualDistributedSwitchNetflowTrafficSentToAuthorizedCollector 
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
     }
-    Else {
-        return $false
+    elseif ($unknown -ne 0) {
+        return 0
     }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-PortLevelConfigurationOverridesAreDisabled {
@@ -316,12 +368,16 @@ function Ensure-PortLevelConfigurationOverridesAreDisabled {
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
     # Return true if all checks passed
-    if ($failed -eq 0) {
-        return $true
+    if ($failed -ne 0) {
+        return -1
     }
-    Else {
-        return $false
+    elseif ($unknown -ne 0) {
+        return 0
     }
+    else {
+        return 1
+    }
+
 
 }
 

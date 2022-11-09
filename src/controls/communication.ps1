@@ -17,6 +17,7 @@ function Ensure-NTPTimeSynchronizationIsConfiguredProperly {
     # Results summary
     $passed = 0
     $failed = 0
+    $unknown = 0
 
     # Get the NTP servers from the host
     $VMHosts = Get-VMHost | Select Name, @{N="NTPSetting";E={$_ | Get-VMHostNtpServer}}
@@ -39,6 +40,18 @@ function Ensure-NTPTimeSynchronizationIsConfiguredProperly {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -51,6 +64,7 @@ function Ensure-ESXiHostFirewallIsProperlyConfigured {
     # Results summary
     $passed = 0
     $failed = 0
+    $unknown = 0
 
 
     # Check if the firewall rules are configured properly
@@ -78,6 +92,18 @@ function Ensure-ESXiHostFirewallIsProperlyConfigured {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -89,6 +115,7 @@ function Ensure-MOBIsDisabled {
     # Results summary
     $passed = 0
     $failed = 0
+    $unknown = 0
 
     # Get the MOB status from the host
     $VMHosts = Get-VMHost | Select Name, @{N="MOBStatus";E={$_ | Get-AdvancedSetting -Name "Config.HostAgent.plugins.solo.enableMob"}}
@@ -111,6 +138,18 @@ function Ensure-MOBIsDisabled {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -133,6 +172,17 @@ function Ensure-DefaultSelfSignedCertificateIsNotUsed {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 }
 
 
@@ -166,6 +216,17 @@ function Ensure-SNMPIsConfiguredProperly {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
     Write-Host "Failed: $failed" -ForegroundColor Red
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 }
 
 function Ensure-dvfilterIsDisabled {
@@ -176,6 +237,7 @@ function Ensure-dvfilterIsDisabled {
     # Results summary
     $passed = 0
     $failed = 0
+    $unknown = 0
 
     # Get the dvfilter status from the host
     $VMHosts = Get-VMHost | Select Name, @{N="Net.DVFilterBindIpAddress";E={$_ | Get-AdvancedSetting Net.DVFilterBindIpAddress | Select -ExpandProperty Values}}
@@ -198,9 +260,21 @@ function Ensure-dvfilterIsDisabled {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 }
 
-function Ensure-DefaultSelfSignedCertificateIsNotUsed {
+function Ensure-DefaultExpiredOrRevokedCertificateIsNotUsed {
     # CIS 2.7 (L1) Ensure expired and revoked SSL certificates are removed from the ESXi server
     Write-Host "`n* CIS control 2.7	(L1) Ensure expired and revoked SSL certificates are removed from the ESXi server" -ForegroundColor Blue
 
@@ -219,6 +293,17 @@ function Ensure-DefaultSelfSignedCertificateIsNotUsed {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 }
 
 
@@ -230,6 +315,7 @@ function Ensure-vSphereAuthenticationProxyIsUsedWithAD {
     # Results summary
     $passed = 0
     $failed = 0
+    $unknown = 0
 
     # Check each host and their domain membership status
     $VMHostsAuth = Get-VMHost | Get-VMHostAuthentication | Select VmHost, Domain, DomainMembershipStatus
@@ -252,6 +338,18 @@ function Ensure-vSphereAuthenticationProxyIsUsedWithAD {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 
 }
 
@@ -264,6 +362,7 @@ function Ensure-VDSHealthCheckIsDisabled {
     # Results summary
     $passed = 0
     $failed = 0
+    $unknown = 0
 
     # Get the VDS Health Check status from the host
     $vds = Get-VDSwitch
@@ -298,6 +397,18 @@ function Ensure-VDSHealthCheckIsDisabled {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
 }
 
 

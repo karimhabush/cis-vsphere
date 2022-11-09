@@ -55,6 +55,18 @@ function Ensure-ESXiIsProperlyPatched {
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
     Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-VIBAcceptanceLevelIsConfiguredProperly {
@@ -63,6 +75,7 @@ function Ensure-VIBAcceptanceLevelIsConfiguredProperly {
     
     $passed = 0
     $failed = 0
+    $unknown = 0
     # Get the Image Profile acceptance level for each VIB
     Foreach ($VMHost in Get-VMHost) {
         $EsxCli = Get-EsxCli -VMHost $VMHost -V2
@@ -85,6 +98,19 @@ function Ensure-VIBAcceptanceLevelIsConfiguredProperly {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 function Ensure-UnauthorizedModulesNotLoaded {
@@ -94,6 +120,7 @@ function Ensure-UnauthorizedModulesNotLoaded {
     # Get the list of loaded kernel modules and check if they are authorized
     $passed = 0
     $failed = 0
+    $unknown = 0
     Foreach ($VMHost in Get-VMHost) {
         $ESXCli = Get-EsxCli -VMHost $VMHost
         $systemModules = $ESXCli.system.module.list() | Foreach {
@@ -121,6 +148,19 @@ function Ensure-UnauthorizedModulesNotLoaded {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
+
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
 
 
@@ -130,6 +170,7 @@ function Ensure-DefaultSaultIsConfiguredProperly {
     
     $passed = 0
     $failed = 0
+    $unknown = 0
     # Get the default value of individual salt per vm using Get-AdvancedSetting
     $expectedSaltValue = 2
     $actualSaltValue = Get-VMHost | Get-AdvancedSetting -Name "Mem.ShareForceSalting" | Select-Object -ExpandProperty Value
@@ -150,6 +191,17 @@ function Ensure-DefaultSaultIsConfiguredProperly {
     Write-Host "`n-- Summary --"
     Write-Host "Passed: $passed" -ForegroundColor Green
     Write-Host "Failed: $failed" -ForegroundColor Red
+    Write-Host "Unknown: $unknown" -ForegroundColor Yellow
 
-    
+    # Return true if all checks passed
+    if ($failed -ne 0) {
+        return -1
+    }
+    elseif ($unknown -ne 0) {
+        return 0
+    }
+    else {
+        return 1
+    }
+
 }
