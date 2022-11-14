@@ -31,71 +31,71 @@ Connect-VCServer
 
 # Run the CIS Benchmark checks and store the results in a variable
 # # 1.Install
-# Write-Host "`n* These controls contain recommendations for settings related to 1.Install" -ForegroundColor Blue
-# Ensure-ESXiIsProperlyPatched
-# Ensure-VIBAcceptanceLevelIsConfiguredProperly
-# Ensure-UnauthorizedModulesNotLoaded
-# Ensure-DefaultSaultIsConfiguredProperly
+Write-Host "`n* These controls contain recommendations for settings related to 1.Install" -ForegroundColor Blue
+Ensure-ESXiIsProperlyPatched
+Ensure-VIBAcceptanceLevelIsConfiguredProperly
+Ensure-UnauthorizedModulesNotLoaded
+Ensure-DefaultSaultIsConfiguredProperly
 
-# # 2.Communication 
-# Write-Host "`n* These controls contain recommendations for settings related to 2.Communication" -ForegroundColor Blue
-# Ensure-NTPTimeSynchronizationIsConfiguredProperly
-# Ensure-ESXiHostFirewallIsProperlyConfigured
-# Ensure-MOBIsDisabled
-# Ensure-DefaultSelfSignedCertificateIsNotUsed
-# Ensure-SNMPIsConfiguredProperly
-# Ensure-dvfilterIsDisabled
-# Ensure-DefaultExpiredOrRevokedCertificateIsNotUsed
-# Ensure-vSphereAuthenticationProxyIsUsedWithAD
-# Ensure-VDSHealthCheckIsDisabled
+# 2.Communication 
+Write-Host "`n* These controls contain recommendations for settings related to 2.Communication" -ForegroundColor Blue
+Ensure-NTPTimeSynchronizationIsConfiguredProperly
+Ensure-ESXiHostFirewallIsProperlyConfigured
+Ensure-MOBIsDisabled
+Ensure-DefaultSelfSignedCertificateIsNotUsed
+Ensure-SNMPIsConfiguredProperly
+Ensure-dvfilterIsDisabled
+Ensure-DefaultExpiredOrRevokedCertificateIsNotUsed
+Ensure-vSphereAuthenticationProxyIsUsedWithAD
+Ensure-VDSHealthCheckIsDisabled
 
-# # 3.Logging
-# Write-Host "`n* These controls contain recommendations for settings related to 3.Logging" -ForegroundColor Blue
-# Ensure-CentralizedESXiHostDumps
-# Ensure-PersistentLoggingIsConfigured
-# Ensure-RemoteLoggingIsConfigured
+# 3.Logging
+Write-Host "`n* These controls contain recommendations for settings related to 3.Logging" -ForegroundColor Blue
+Ensure-CentralizedESXiHostDumps
+Ensure-PersistentLoggingIsConfigured
+Ensure-RemoteLoggingIsConfigured
 
-# # 4.Access
-# Write-Host "`n* These controls contain recommendations for settings related to 4.Access" -ForegroundColor Blue
-# Ensure-NonRootExistsForLocalAdmin
-# Ensure-PasswordsAreRequiredToBeComplex
-# Ensure-LoginAttemptsIsSetTo5
-# Ensure-AccountLockoutIsSetTo15Minutes
-# Ensure-Previous5PasswordsAreProhibited
-# Ensure-ADIsUsedForAuthentication
-# Ensure-OnlyAuthorizedUsersBelongToEsxAdminsGroup
-# Ensure-ExceptionUsersIsConfiguredManually
+# 4.Access
+Write-Host "`n* These controls contain recommendations for settings related to 4.Access" -ForegroundColor Blue
+Ensure-NonRootExistsForLocalAdmin
+Ensure-PasswordsAreRequiredToBeComplex
+Ensure-LoginAttemptsIsSetTo5
+Ensure-AccountLockoutIsSetTo15Minutes
+Ensure-Previous5PasswordsAreProhibited
+Ensure-ADIsUsedForAuthentication
+Ensure-OnlyAuthorizedUsersBelongToEsxAdminsGroup
+Ensure-ExceptionUsersIsConfiguredManually
 
-# # 5.Console
-# Write-Host "`n* These controls contain recommendations for settings related to 5.Console" -ForegroundColor Blue
-# Ensure-DCUITimeOutIs600
-# Ensure-ESXiShellIsDisabled
-# Ensure-SSHIsDisabled
-# Ensure-CIMAccessIsLimited
-# Ensure-NormalLockDownIsEnabled
-# Ensure-StrickLockdownIsEnabled
-# Ensure-SSHAuthorisedKeysFileIsEmpty
-# Ensure-IdleESXiShellAndSSHTimeout
-# Ensure-ShellServicesTimeoutIsProperlyConfigured
-# Ensure-DCUIHasTrustedUsersForLockDownMode
-# Ensure-ContentsOfExposedConfigurationsNotModified
+# 5.Console
+Write-Host "`n* These controls contain recommendations for settings related to 5.Console" -ForegroundColor Blue
+Ensure-DCUITimeOutIs600
+Ensure-ESXiShellIsDisabled
+Ensure-SSHIsDisabled
+Ensure-CIMAccessIsLimited
+Ensure-NormalLockDownIsEnabled
+Ensure-StrickLockdownIsEnabled
+Ensure-SSHAuthorisedKeysFileIsEmpty
+Ensure-IdleESXiShellAndSSHTimeout
+Ensure-ShellServicesTimeoutIsProperlyConfigured
+Ensure-DCUIHasTrustedUsersForLockDownMode
+Ensure-ContentsOfExposedConfigurationsNotModified
 
-# # 6.Storage 
-# Write-Host "`n* These controls contain recommendations for settings related to 6.Storage" -ForegroundColor Blue
-# Ensure-BidirectionalCHAPAuthIsEnabled
-# Ensure-UniquenessOfCHAPAuthSecretsForiSCSI
-# Ensure-SANResourcesAreSegregatedProperly
+# 6.Storage 
+Write-Host "`n* These controls contain recommendations for settings related to 6.Storage" -ForegroundColor Blue
+Ensure-BidirectionalCHAPAuthIsEnabled
+Ensure-UniquenessOfCHAPAuthSecretsForiSCSI
+Ensure-SANResourcesAreSegregatedProperly
 
-# # 7.Network 
-# Write-Host "`n* These controls contain recommendations for settings related to 7.Network" -ForegroundColor Blue
-# Ensure-vSwitchForgedTransmitsIsReject
-# Ensure-vSwitchMACAdressChangeIsReject
-# Ensure-vSwitchPromiscuousModeIsReject
-# Ensure-PortGroupsNotNativeVLAN
-# Ensure-PortGroupsNotUpstreamPhysicalSwitches
-# Ensure-PortGroupsAreNotConfiguredToVLAN0and4095
-# Ensure-VirtualDistributedSwitchNetflowTrafficSentToAuthorizedCollector
-# Ensure-PortLevelConfigurationOverridesAreDisabled
+# 7.Network 
+Write-Host "`n* These controls contain recommendations for settings related to 7.Network" -ForegroundColor Blue
+Ensure-vSwitchForgedTransmitsIsReject
+Ensure-vSwitchMACAdressChangeIsReject
+Ensure-vSwitchPromiscuousModeIsReject
+Ensure-PortGroupsNotNativeVLAN
+Ensure-PortGroupsNotUpstreamPhysicalSwitches
+Ensure-PortGroupsAreNotConfiguredToVLAN0and4095
+Ensure-VirtualDistributedSwitchNetflowTrafficSentToAuthorizedCollector
+Ensure-PortLevelConfigurationOverridesAreDisabled
 
 # 8.Virual Machines
 Write-Host "`n* These controls contain recommendations for settings related to 8.Virtual Machines" -ForegroundColor Blue
