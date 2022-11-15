@@ -10,8 +10,8 @@ Import-Module -Name $PSScriptRoot\controls\network.ps1 -Force
 
 # A function to connect to vCenter/ESXi Server using the Connect-VIServer cmdlet and store the connection in a variable
 function Connect-VCServer {
-    # Get the IP Address of the server
-    $server = Read-Host -Prompt 'Please insert the server IP address'
+    # Asking the user for the vCenter/ESXi Server Hostname or IP Address
+    $server = Read-Host -Prompt "Enter the vCenter/ESXi Server Hostname or IP Address"
 
     # Set InvalidCertificateAction to warn instead of stop without user interaction
     Write-Host "Setting InvalidCertificateAction to Warn instead of Stop..."
